@@ -17,32 +17,24 @@ void setup()
 void loop()
 {
 
-    /*
-    A diferença entre 5ms e 5s é de 4995ms
-    Esse intervalo começa em zero e aumenta 0,15 (15%) a cada execução do 'for'
-    Aumentando 15% por execução, porém, não é possível chegar em 100%, dentro do conjunto dos INTEIROS (Z)
-    Assim, o 'for' executa 6 vezes, chegando a um máximo de 90%
-    Para chegar em 100%, o 'for' teria de ser executado 6,6666.. vezes, o que no contexto matemático
-    é inviável. (Pela limitação do conjunto dos números inteiros)
-    */
-    for (int i = 0; i <= 6; i++){
-        ledLoop(4995 * 0.15 * i);
+    for (float i = 5; i <= 5000; i += i * 0.15){
+        ledLoop(i);
     }
 
 }
 
 //Função que irá controlar o piscar dos LED's e o delay
-int ledLoop (int timeFunction) { 
+int ledLoop (float timeFunction) { 
     digitalWrite(ledRed, HIGH);
-    delay(5 + timeFunction);
+    delay(timeFunction);
     digitalWrite(ledRed, LOW);
-    delay(5 + timeFunction);
+    delay(timeFunction);
     digitalWrite(ledYellow, HIGH);
-    delay(5 + timeFunction);
+    delay(timeFunction);
     digitalWrite(ledYellow, LOW);
-    delay(5 + timeFunction);
+    delay(timeFunction);
     digitalWrite(ledGreen, HIGH);
-    delay(5 + timeFunction);
+    delay(timeFunction);
     digitalWrite(ledGreen, LOW);
-    delay(5 + timeFunction);
+    delay(timeFunction);
 }

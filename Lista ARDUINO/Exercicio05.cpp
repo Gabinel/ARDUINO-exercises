@@ -17,24 +17,24 @@ void setup()
 void loop()
 {
 
-    for (int i = 0; i <= 5; i++){
-        ledLoop(4995 * 0.2 * i);
+    for (float i = 5000; i >= 5; i -= i * 0.2){
+        ledLoop(i);
     }
 
 }
 
 //Função que irá controlar o piscar dos LED's e o delay
-int ledLoop (int timeFunction) { 
+int ledLoop (float timeFunction) { 
     digitalWrite(ledRed, HIGH);
-    delay(5000 - timeFunction);
+    delay(timeFunction);
     digitalWrite(ledRed, LOW);
-    delay(5000 - timeFunction);
+    delay(timeFunction);
     digitalWrite(ledYellow, HIGH);
-    delay(5000 - timeFunction);
+    delay(timeFunction);
     digitalWrite(ledYellow, LOW);
-    delay(5000 - timeFunction);
+    delay(timeFunction);
     digitalWrite(ledGreen, HIGH);
-    delay(5000 - timeFunction);
+    delay(timeFunction);
     digitalWrite(ledGreen, LOW);
-    delay(5000 - timeFunction);
+    delay(timeFunction);
 }
